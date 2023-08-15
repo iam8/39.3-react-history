@@ -65,7 +65,6 @@ function JokeList ({numJokesToGet=5}) {
     /**
      * Either render the loading spinner or the list of sorted jokes.
      */
-    let sortedJokes = [...jokes].sort((a, b) => b.votes - a.votes);
     if (isLoading) {
         return (
             <div className="loading">
@@ -74,6 +73,7 @@ function JokeList ({numJokesToGet=5}) {
         );
     }
 
+    let sortedJokes = [...jokes].sort((a, b) => b.votes - a.votes);
     return (
         <div className="JokeList">
             <button
