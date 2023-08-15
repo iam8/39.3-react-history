@@ -1,31 +1,62 @@
-import React, { Component } from "react";
+// import React, { Component } from "react";
+import React from "react";
 import "./Joke.css";
 
 
-/** A single joke, along with vote up/down buttons. */
+/** A single joke, along with vote up/down buttons. Class-based version. */
 
-class Joke extends Component {
-    render() {
-        const { id, vote, votes, text } = this.props;
+// class Joke extends Component {
+//     render() {
+//         const { id, vote, votes, text } = this.props;
 
-        return (
-            <div className="Joke">
-                <div className="Joke-votearea">
-                    <button onClick={evt => vote(id, +1)}>
-                        <i className="fas fa-thumbs-up" />
-                    </button>
+//         return (
+//             <div className="Joke">
+//                 <div className="Joke-votearea">
+//                     <button onClick={evt => vote(id, +1)}>
+//                         <i className="fas fa-thumbs-up" />
+//                     </button>
 
-                    <button onClick={evt => vote(id, -1)}>
-                        <i className="fas fa-thumbs-down" />
-                    </button>
+//                     <button onClick={evt => vote(id, -1)}>
+//                         <i className="fas fa-thumbs-down" />
+//                     </button>
 
-                    {votes}
-                </div>
+//                     {votes}
+//                 </div>
 
-                <div className="Joke-text">{text}</div>
+//                 <div className="Joke-text">{text}</div>
+//             </div>
+//         );
+//     }
+// }
+
+// export default Joke;
+
+
+/**
+ * A single joke, along with vote up/down buttons. Functional version.
+ */
+function Joke ({id, vote, votes, text}) {
+
+    return (
+        <div className="Joke">
+            <div className="Joke-votearea">
+                <button onClick={evt => vote(id, +1)}>
+                    <i className="fas fa-thumbs-up" />
+                </button>
+
+                <button onClick={evt => vote(id, -1)}>
+                    <i className="fas fa-thumbs-down" />
+                </button>
+
+                {votes}
             </div>
-        );
-    }
+
+            <div className="Joke-text">
+                {text}
+            </div>
+        </div>
+    );
 }
+
 
 export default Joke;
